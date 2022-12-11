@@ -10,8 +10,358 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="/css/login.css">
         <style>
+            body{
+                background-color: #000000;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+                background-attachment: fixed;
+                background-size: cover;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .ion{
+                font-size: 26px;
+            }
+            .ion-small{
+                font-size:20px;
+            }
+            .ion-separator{
+                font-size:30px;
+            }
+            .placeholder{
+                transform:translateY(-70px);
+                transition:.5s;
+            }
+            .shake{
+                border:2px solid;
+                border-color:red;
+                border-radius:5px;
+                animation:shake .3s ;
+                transition:border-color .5s, border 0;
+                transition-delay:0s, 0s;
+            }
+            @keyframes shake{
+                25% {transform: translateX(4px);}
+                50%{ transform: translateX(-4px);}
+                75%{ transform: translateX(4px);}
+            }
+            .error-eyes{
+                transform: translateY(40px);
+                opacity:0;
+                transition-delay:5s;
+            }
+            .error-eyes.error-visible{
+                opacity:1;
+                transition-delay:5s;
+            }
+            .error-eyes{
+                filter:invert(18%) sepia(92%) saturate(3621%) hue-rotate(346deg) brightness(74%) contrast(92%);
+            }
+
+            .form-id:focus ~ .placeholder-id{
+                transform:translate(-16px, -100px) scale(0.8);
+                color:black;
+            }
+            .form-pw:focus ~ .placeholder-pw{
+                transform:translate(-8px, -100px) scale(0.8);
+                color:black;
+            }
+            .form-id:not(:placeholder-shown) ~ .placeholder-id{
+                transform:translate(-16px, -100px) scale(0.8);
+                color:black;
+            }
+            .form-pw:not(:placeholder-shown) ~ .placeholder-pw{
+                transform:translate(-8px, -100px) scale(0.8);
+                color:black;
+            }
+            .error-message{
+                transform:translateY(-40px);
+                font-size:10px;
+                transition-delay:var(--i);
+            }
+            @media (max-height:600px) {
+                .logo-div{
+                    height: 0;
+                }
+            }
+            .recover{
+                transition: .5s;
+            }
+            .recover .login{
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+            .recover .recover-1{
+                opacity: 1;
+                height: auto;
+                width: max-content;
+            }
+            .cards.step-1 {
+                transform: translateX(43.4%);
+            }
+
+            .cards.step-1 .card-1 {
+                opacity: 1;
+            }
+
+            .cards.step-1 .card-2 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-1 .card-3 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-1 .card-4 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-1 .card-5 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-1 .card-6 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-1 .card-7 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-2 {
+                transform: translateX(28.92%);
+            }
+
+            .cards.step-2 .card-1 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-2 .card-2 {
+                opacity: 1;
+            }
+
+            .cards.step-2 .card-3 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-2 .card-4 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-2 .card-5 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-2 .card-6 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-2 .card-7 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-3 {
+                transform: translateX(14.46%);
+            }
+
+            .cards.step-3 .card-1 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-3 .card-2 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-3 .card-3 {
+                opacity: 1;
+            }
+
+            .cards.step-3 .card-4 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-3 .card-5 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-3 .card-6 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-3 .card-7 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-4 {
+                transform: translateX(0%);
+            }
+
+            .cards.step-4 .card-1 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-4 .card-2 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-4 .card-3 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-4 .card-4 {
+                opacity: 1;
+            }
+
+            .cards.step-4 .card-5 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-4 .card-6 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-4 .card-7 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-5 {
+                transform: translateX(-14.46%);
+            }
+
+            .cards.step-5 .card-1 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-5 .card-2 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-5 .card-3 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-5 .card-4 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-5 .card-5 {
+                opacity: 1;
+            }
+
+            .cards.step-5 .card-6 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-5 .card-7 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-6 {
+                transform: translateX(-28.92%);
+            }
+
+            .cards.step-6 .card-1 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-6 .card-2 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-6 .card-3 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-6 .card-4 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-6 .card-5 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-6 .card-6 {
+                opacity: 1;
+            }
+
+            .cards.step-6 .card-7 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-7 {
+                transform: translateX(-43.4%);
+            }
+
+            .cards.step-7 .card-1 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-7 .card-2 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-7 .card-3 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-7 .card-4 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-7 .card-5 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-7 .card-6 {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .cards.step-7 .card-7 {
+                opacity: 7;
+            }
+
         </style>
 
         <style>
