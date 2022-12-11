@@ -1,480 +1,133 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @vite('resources/css/app.css')
-    <title>Laravel</title>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        @vite('resources/css/app.css')
+        <title>Laravel</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Fonts -->
+        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <style>
-        body{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .ion{
-            font-size: 26px;
-        }
-        .ion-small{
-            font-size:20px;
-        }
-        .ion-card{
-            font-size:82px;
-        }
-        .ion-separator{
-            font-size:30px;
-        }
-        .header-submenu{
-            z-index: -1;
-            transition: transform .5s, width .5s, height .5s, padding .5s, border-radius .5s, box-shadow .5s;
-            transition-delay: 1.2s, .7s, .5s, .7s, .7s, .5s;
-            font-size:14px;
-        }
-        .header-submenu.active{
-            width: 120px;
-            height: 140px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.6);;
-            transform: translateY(80px);
-            transition-delay: 0.2s, .5s, .7s, .5s, .5s, .5s;
-        }
-        .arrowtop{
-            left:calc(50% - 8px);
-        }
-        .header-submenu.active .arrowtop{
-            top:-5px;
-        }
-        .header-submenu li{
-            transition-delay:calc(0s + var(--i));
-        }
-        .header-submenu.active li{
-            opacity:1;
-            visibility:visible;
-            transition:.5s;
-            transition-delay:calc(1s + var(--i));
-        }
-        .header-submenu.active a:hover{
-            transition-delay: 0s;
-            transition:.5s;
-            background:#221e1e;
-            color: #b81d28;
-        }
-        .header-submenu-button.active{
-            animation: pop .5s;
-        }
-        @keyframes pop{
-            10% {
-                transform:scale(.9);
-            }
-        }
-        .header-submenu-button-locker{
-            transition: .7s;
-        }
-        .header-submenu-button-locker.active{
-            width: 133px;
-            height: 50px;
-            transition: 0;
-        }
-        .header-submenu-button-locker.active:hover{
-            border: 1px solid #b81d28;
-        }
-        .images{
-            animation: pass 20s infinite;
-        }
-        @keyframes pass {
-            15%{
-                transform: translateX(0%);
-            }
-            20%{
-                transform: translateX(-100%);
-            }
-            35%{
-                transform: translateX(-100%);
-            }
-            40%{
-                transform: translateX(-200%);
-            }
-            55%{
-                transform: translateX(-200%);
-            }
-            60%{
-                transform: translateX(-300%);
-            }
-            75%{
-                transform: translateX(-300%);
-            }
-            80%{
-                transform: translateX(-400%);
-            }
-            95%{
-                transform: translateX(-400%);
-            }
-            100%{
-                transform: translateX(0%);
-            }
-        }
-        .images-dot0{
-            animation: passdot 20s infinite;
-        }
-        @keyframes passdot {
-            15%{
-                width: .5rem;
-            }
-            17%{
-                transform: translateX(0);
-                width: 1.8rem;
-            }
-            20%{
-                transform: translateX(calc(+1.25em));
-                width: .5rem;
-            }
+        <!-- Styles -->
+        <style>
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-gray-100{--tw-bg-opacity: 1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.border-gray-200{--tw-border-opacity: 1;border-color:rgb(229 231 235 / var(--tw-border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{--tw-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);--tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.text-center{text-align:center}.text-gray-200{--tw-text-opacity: 1;color:rgb(229 231 235 / var(--tw-text-opacity))}.text-gray-300{--tw-text-opacity: 1;color:rgb(209 213 219 / var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity: 1;color:rgb(156 163 175 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity: 1;color:rgb(107 114 128 / var(--tw-text-opacity))}.text-gray-600{--tw-text-opacity: 1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity: 1;color:rgb(55 65 81 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity: 1;color:rgb(17 24 39 / var(--tw-text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--tw-bg-opacity: 1;background-color:rgb(31 41 55 / var(--tw-bg-opacity))}.dark\:bg-gray-900{--tw-bg-opacity: 1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:border-gray-700{--tw-border-opacity: 1;border-color:rgb(55 65 81 / var(--tw-border-opacity))}.dark\:text-white{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:text-gray-400{--tw-text-opacity: 1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-gray-500{--tw-text-opacity: 1;color:rgb(107 114 128 / var(--tw-text-opacity))}}
+        </style>
 
-            35%{
-                width: .5rem;
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
             }
-            37%{
-                transform: translateX(calc(+1.25em));
-                width: 1.8rem;
-            }
-            40%{
-                transform: translateX(2.5em);
-                width: .5rem;
-            }
-            55%{
-                width: .5rem;
-            }
-            57%{
-                transform: translateX(2.5rem);
-                width: 1.8rem;
-            }
-            60%{
-                transform: translateX(3.75em);
-                width: .5rem;
-            }
-            75%{
-                width: .5rem;
-            }
-            77%{
-                transform: translateX(3.75rem);
-                width: 1.8rem;
-            }
-            80%{
-                transform: translateX(5em);
-                width: .5rem;
-            }
-            95%{
-                transform: translateX(5em);
-            }
-            100%{
-                transform: translateX(0%);
-            }
-        }
-    </style>
-</head>
-<body class="bg-black overflow-x-hidden w-[80vw]">
+        </style>
+    </head>
+    <body class="antialiased">
+    <div class=""><p class="text-amber-800">ola</p></div>
+        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-<div class="w-screen h-20 bg-redd" style="overflow: hidden">
-    <div class="w-[200vw] h-10 bg-grayd">
-        <div class="user-mobile max-sm:h-[calc(100vh-80px)] max-sm:w-screen
-                    max-sm:bg-grayd max-sm:translate-x-full absolute top-[80px]
-                    duration-200 p-5 flex flex-col place-content-between sm:translate-y-[-1000%]">
-            <ul class="mobile-aside-ul flex flex-col justify-center text-white gap-5">
-                <a href="/views/Usuarios.html" class="mobile-module-users flex items-center">
-                    <li class="h-12 flex items-center">
-                        <ion-icon name="person" class="ion text-white
-                                        duration-200 ion-module"></ion-icon>
-
-                        <label class="aside-label relative ml-5
-                                        duration-300 cursor-pointer">Perfil</label>
-                    </li>
-                </a>
-
-
-                <a href="/views/settings.html" class="mobile-module-clients" target="display">
-                    <li class="h-12 flex items-center">
-                        <ion-icon name="cog-outline" class="ion text-white
-                                    duration-200 ion-module"></ion-icon>
-                        <label class="aside-label relative ml-5
-                                    duration-300 cursor-pointer">Ajustes</label>
-                    </li>
-                </a>
-
-            </ul>
-            <a href="/views/login.html">
-                <div class="h-12 flex items-center text-white mb-0">
-                    <ion-icon name="log-out" class="ion"></ion-icon>
-
-                    <label class="aside-label relative ml-5
-                                duration-300 cursor-pointer">Salir</label>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+                    @endauth
                 </div>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="theme w-10 h-10 bg-grayd dark:bg-darkredd rounded flex justify-center items-center fixed right-0 top-2/3 cursor-pointer">
-    <ion-icon name="moon" class="text-white moon opacity-0 dark:opacity-100"></ion-icon>
-    <ion-icon name="sunny-outline" class=" text-white sun ion absolute duration-200 opacity-100 rotate-180 dark:opacity-0 dark:-rotate-180"></ion-icon>
-</div>
-<header class="bg-grayd fixed max-sm:static w-screen flex px-20
-            max-sm:px-5 place-content-between items-center z-50 overflow-visible
-            h-20 max-sm:overflow-hidden">
-    <div class="flex align-center rounded-2xl p-1.5 duration-500
-                text-white">
+            @endif
 
-
-        <ion-icon name="add"
-                  class="header-aside-x ion text-white duration-200 ion-module rotate-45 absolute sm:invisible sm:opacity-0 max-sm:opacity-0">
-        </ion-icon>
-        <ion-icon name="menu" class="header-aside text-[24px]
-                    sm:w-0 sm:invisible sm:h-0"></ion-icon>
-        <a href="index.html"><img src="/resources/img/logo.svg" alt="X" class="header-logo h-8 max-sm:w-0 max-sm:invisible
-                        max-sm:h-0" tabindex="1"></a>
-    </div>
-    <a href="index.html"><img src="/resources/img/logo.svg" alt="X" class="header-logo h-8 sm:w-0 sm:invisible sm:h-0"
-                              tabindex="1"></a>
-    <ul class="header-modules flex text-white items-center text-header">
-        <li class="max-sm:w-0 max-sm:invisible max-sm:h-0">
-            <a href="" tabindex="1">
-                <div class="flex align-center rounded-2xl p-1.5
-                            duration-500 hover:bg-redd">
-                    <ion-icon name="help" class="ion-small"></ion-icon>
+            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
+                        <g clip-path="url(#clip0)" fill="#EF3B2D">
+                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
+                        </g>
+                    </svg>
                 </div>
-            </a>
-        </li>
-        <li class="max-sm:w-0 max-sm:invisible max-sm:h-0">
-            <div class="flex align-center rounded-2xl p-1.5 p-0
-                        rotate-90 ion-separator">
-                <ion-icon name="remove-outline" class=""></ion-icon>
-            </div>
-        </li>
-        <li class="submenu-li ">
-            <div class="header-submenu-div relative flex
-                        justify-center">
-                <button class="header-submenu-button flex p-1.5 max-sm:p-0
-                            duration-500 flex items-center gap-2 max-sm:gap-0
-                            border border-grayd rounded sm:hover:border-redd
-                            cursor-pointer px-3" tabindex="1">
 
-                    <ion-icon name="person" style="font-size: 24px;" class="header-user max-sm:opacity-1">
-                    </ion-icon>
-                    <ion-icon name="add"
-                              class="header-user-x ion text-white duration-200 ion-module rotate-45 absolute sm:opacity-0 max-sm:opacity-0">
-                    </ion-icon>
-                    <div class="max-sm:invisible max-sm:w-0">
-                        <strong>Juan Becerra</strong>
-                        <p>Administrador</p>
+                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                            <div class="flex items-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                            <div class="flex items-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </button>
-                <button class="header-submenu-button-locker absolute -ml-2
-                            opacity-0 border-grayd rounded" tabindex="1">
-                </button>
-                <div class="header-submenu max-sm:invisible absolute w-7
-                            h-7 bg-grayd rounded-2xl ease-in-out shadow-custom " tabindex="1">
-                    <div class="arrowtop absolute w-4 h-4 bg-grayd top-1
-                                rotate-45 rounded-sm duration-500 delay-700
-                                ease-in-out flex">
+                </div>
+
+                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
+                    <div class="text-center text-sm text-gray-500 sm:text-left">
+                        <div class="flex items-center">
+                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
+                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+
+                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
+                                Shop
+                            </a>
+
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
+                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+
+                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
+                                Sponsor
+                            </a>
+                        </div>
                     </div>
-                    <ul class="header-submenu-ul flex flex-col m-5">
-                        <li style="--i:0s;" class="submenu-profile
-                                    opacity-0 invisible duration-500">
-                            <a href="#" class="flex items-center mb-2.5
-                                        duration-500" tabindex="1">
-                                    <span class="w-7 mr-2.5 flex
-                                            justify-center">
-                                        <ion-icon name="person" class="ion"></ion-icon>
-                                    </span> <span for="">Perfil</span>
-                            </a>
-                        </li>
-                        <li style="--i:0.1s;" class="submenu-settings
-                                    opacity-0 invisible duration-500">
-                            <a href="#" class=" flex items-center mb-2.5
-                                        duration-500" tabindex="1">
-                                    <span class="w-7 mr-2.5 flex
-                                            justify-center">
-                                        <ion-icon name="cog" class="ion"></ion-icon>
-                                    </span> <span for="">Ajustes</span>
-                            </a>
-                        </li>
-                        <li style="--i:0.2s;" class="submenu-exit
-                                    opacity-0 invisible duration-500">
-                            <a href="login.html" class="flex
-                                        items-center mb-2.5 duration-500" tabindex="1">
-                                    <span class="w-7 mr-2.5 flex
-                                            justify-center">
-                                        <ion-icon name="exit" class="ion"></ion-icon>
-                                    </span> <span for="">Salir</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="ml-2">
-                </div>
-        </li>
-    </ul>
-</header>
-<main class=" max-sm:pt-16">
-    <div class="h-128 max-sm:h-32 w-full overflow-hidden flex justify-center items-center">
-        <div class="images flex items-center w-auto fixed -z-10">
-            <img src="/img/home-images/1.jpg" alt="" class=" -z-10 blur">
-            <img src="/img/home-images/2.jpg" alt="" class=" -z-10 blur">
-            <img src="/img/home-images/3.jpg" alt="" class=" -z-10 blur">
-            <img src="/img/home-images/4.jpg" alt="" class=" -z-10 blur">
-            <img src="/img/home-images/5.jpg" alt="" class=" -z-10 blur">
-        </div>
-        <img src="" alt="" class="blur">
-        <div class="max-sm:scale-50 h-32 w-32 z-10 absolute">
-            <img src="/img/logo.svg" alt="" class="h-32">
-            <p class="flex justify-center text-white text-3xl mt-5 font-semibold">MDK</p>
-        </div>
-    </div>
-    <div class="max-sm:scale-50 w-full h-5 flex justify-center items-center gap-3 mb-3">
-        <div class="flex justify-start w-24 h-2 absolute px-1">
-            <div class="images-dot0 w-2 h-2 bg-white rounded"></div>
-        </div>
-        <div class="images-dot1 w-2 h-2 bg-white rounded opacity-50 cursor-pointer"></div>
-        <div class="images-dot2 w-2 h-2 bg-white rounded opacity-50 cursor-pointer"></div>
-        <div class="images-dot3 w-2 h-2 bg-white rounded opacity-50 cursor-pointer"></div>
-        <div class="images-dot4 w-2 h-2 bg-white rounded  max-sm opacity-50 cursor-pointer"></div>
-        <div class="images-dot5 w-2 h-2 bg-white rounded opacity-50 cursor-pointer"></div>
-    </div>
-    <div class="p-12 max-sm:p-5 w-full overflow-hidden flex flex-wrap justify-center items-center gap-8 max-sm:gap-2 text-white bg-white dark:bg-darkgrayd duration-500">
-        <a href="modulos.html">
-            <button class="bg-redd dark:bg-darkredd h-72 w-56 rounded-md sm:hover:shadow-cards duration-200 sm:hover:-mt-10 max-sm max-sm:h-24 max-sm:w-28 max-sm:p-4">
-                <div class=" w-full flex justify-center items-center mt-8 max-sm:mt-0">
-                    <ion-icon name="person" class="sm:text-card max-sm:text-3xl"></ion-icon>
-                </div>
-                <div>
-                    <p class="w-full h-12 flex justify-center items-center text-3xl max-sm:text-lg">Usuarios</p>
-                    <p class="w-full h-32 flex text-center pt-3 text-md max-sm px-10 max-sm:invisible max-sm:opacity-0 ">Personal que trabaja en la empresa</p>
-                </div>
-            </button>
-        </a>
-        <a href="">
-            <button class="bg-redd dark:bg-darkredd h-72 w-56 rounded-md sm:hover:shadow-cards duration-200 sm:hover:-mt-10 max-sm max-sm:h-24 max-sm:w-28 max-sm:p-4">
-                <div class=" w-full flex justify-center items-center mt-8 max-sm:mt-0">
-                    <ion-icon name="people" class="sm:text-card max-sm:text-3xl"></ion-icon>
-                </div>
-                <div>
-                    <p class="w-full h-12 flex justify-center items-center text-3xl max-sm:text-lg">Clientes</p>
-                    <p class="w-full h-32 flex text-center pt-3 text-md max-sm px-10 max-sm:invisible max-sm:opacity-0 ">Personal que trabaja en la empresa</p>
-                </div>
-            </button>
-        </a>
-        <a href="">
-            <button class="bg-redd dark:bg-darkredd h-72 w-56 rounded-md sm:hover:shadow-cards duration-200 sm:hover:-mt-10 max-sm max-sm:h-24 max-sm:w-28 max-sm:p-4">
-                <div class=" w-full flex justify-center items-center mt-8 max-sm:mt-0">
-                    <ion-icon name="car" class="sm:text-card max-sm:text-3xl"></ion-icon>
-                </div>
-                <div>
-                    <p class="w-full h-12 flex justify-center items-center text-3xl max-sm:text-lg">Vehiculos</p>
-                    <p class="w-full h-32 flex text-center pt-3 text-md max-sm px-10 max-sm:invisible max-sm:opacity-0 ">Vehiculos de los clientes</p>
-                </div>
-            </button>
-        </a>
-        <a href="">
-            <button class="bg-redd dark:bg-darkredd h-72 w-56 rounded-md sm:hover:shadow-cards duration-200 sm:hover:-mt-10 max-sm max-sm:h-24 max-sm:w-28 max-sm:p-4">
-                <div class=" w-full flex justify-center items-center mt-8 max-sm:mt-0">
-                    <ion-icon name="cart" class="sm:text-card max-sm:text-3xl"></ion-icon>
-                </div>
-                <div>
-                    <p class="w-full h-12 flex justify-center items-center text-3xl max-sm:text-lg">Proveedores</p>
-                    <p class="w-full h-32 flex text-center pt-3 text-md max-sm px-10 max-sm:invisible max-sm:opacity-0 ">Personal que trabaja en la empresa</p>
-                </div>
-            </button>
-        </a>
-        <a href="">
-            <button class="bg-redd dark:bg-darkredd h-72 w-56 rounded-md sm:hover:shadow-cards duration-200 sm:hover:-mt-10 max-sm max-sm:h-24 max-sm:w-28 max-sm:p-4">
-                <div class=" w-full flex justify-center items-center mt-8 max-sm:mt-0">
-                    <ion-icon name="file-tray-full" class="sm:text-card max-sm:text-3xl"></ion-icon>
-                </div>
-                <div>
-                    <p class="w-full h-12 flex justify-center items-center text-3xl max-sm:text-lg">Insumos</p>
-                    <p class="w-full h-32 flex text-center pt-3 text-md max-sm px-10 max-sm:invisible max-sm:opacity-0 ">Personal que trabaja en la empresa</p>
-                </div>
-            </button>
-        </a>
-        <a href="">
-            <button class="bg-redd dark:bg-darkredd h-72 w-56 rounded-md sm:hover:shadow-cards duration-200 sm:hover:-mt-10 max-sm max-sm:h-24 max-sm:w-28 max-sm:p-4">
-                <div class=" w-full flex justify-center items-center mt-8 max-sm:mt-0">
-                    <ion-icon name="receipt" class="sm:text-card max-sm:text-3xl"></ion-icon>
-                </div>
-                <div>
-                    <p class="w-full h-12 flex justify-center items-center text-3xl max-sm:text-lg">Facturación</p>
-                    <p class="w-full h-32 flex text-center pt-3 text-md px-10 max-sm:invisible max-sm:opacity-0 ">Personal que trabaja en la empresa</p>
-                </div>
-            </button>
-        </a>
-    </div>
 
-    <div class="bg-white w-full dark:bg-darkgrayd duration-500">
-
-        <div class="shadow-lg rounded-lg overflow-hidden w-full h-screen px-10 max-sm:px-2">
-
-
-            <div class="py-3 px-5 flex items-center gap-5">
-                <ion-icon name="receipt" class="sm:text-card max-sm:text-3xl text-redd"></ion-icon><p class="text-5xl max-sm:text-3xl text-redd">Ventas</p></div>
-            <div class="w-full flex justify-center items-center">
-                <div class="w-286 max-sm:w-full">
-                    <canvas class="p-5" id="chartLine"></canvas>
+                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                    </div>
                 </div>
             </div>
-
         </div>
-
-        <!-- Required chart.js -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-        <!-- Chart line -->
-        <script>
-            const labels = ["January", "February", "March", "April", "May", "June"];
-            const data = {
-                labels: labels,
-                datasets: [
-                    {
-                        label: "Ventas",
-                        backgroundColor: "hsl(356, 73%, 42%)",
-                        borderColor: "hsl(356, 73%, 42%)",
-                        data: [0, 22, 5, 2, 20, 12, 35],
-                    },
-                    {
-                        label: "Insumos gastados",
-                        backgroundColor: "hsl(355, 73%, 25%)",
-                        borderColor: "hsl(355, 73%, 25%)",
-                        data: [0, 25, 15, 35, 42, 48, 50],
-                    },
-                    {
-                        label: "Usuarios registrados",
-                        backgroundColor: "hsl(354, 76%, 8%)",
-                        borderColor: "hsl(354, 76%, 8%)",
-                        data: [0, 10, 20, 25, 22, 33, 35],
-                    },
-                ],
-            };
-
-            const configLineChart = {
-                type: "line",
-                data,
-                options: {},
-            };
-
-            var chartLine = new Chart(
-                document.getElementById("chartLine"),
-                configLineChart
-            );
-        </script>
-
-    </div>
-</main>
-<footer class="absolute bg-grayd w-full text-white h-8">
-    <ul class="absolute flex gap-5 inset-y-0 right-8">
-        <li><a href="" class="align-middle hover:underline max-sm:text-sm">Empresa</a></li>
-        <li><a href="" class="align-middle hover:underline max-sm:text-sm">Creditos</a></li>
-    </ul>
-</footer>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="/js/header.js"></script>
-</body>
+    </body>
 </html>

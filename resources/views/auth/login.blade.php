@@ -392,7 +392,11 @@
             <div class="cards step-1 flex gap-10 duration-200">
                 <div
                     class="form-container card-1 duration-200 bg-white w-[26rem] max-sm:w-80 max-sm:h-[22rem] h-[25rem] max-sm:h-[19.5rem] p-10 bg-white rounded-lg flex justify-center">
-                    <form action="index.html" target="_self" class="login">
+
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                    <form method="POST" action="{{ route('login') }}" class="login">
+                        @csrf
                         <div class="form-content">
                             <p class="form-title mt-5 mb-10 max-sm:mt-2 max-sm:mb-8" style="font-size: 24px;;">Iniciar
                                 Sesión</p>

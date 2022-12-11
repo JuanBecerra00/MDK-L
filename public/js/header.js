@@ -4,6 +4,7 @@ let submenu = document.querySelector('.header-submenu');
 let profile = document.querySelector('.submenu-profile');
 let settings = document.querySelector('.submenu-settings');
 let exit = document.querySelector('.submenu-exit');
+let body = document.querySelector('.body');
 
 let mobilemoduleusers = document.querySelector('.mobile-module-users');
 let mobilemoduleclients = document.querySelector('.mobile-module-clients');
@@ -19,8 +20,9 @@ let headeruserx = document.querySelector('.header-user-x');
 submenubutton.onclick = function () {
     submenubutton.classList.add('active')
     submenu.focus()
-
-    usermobile.classList.toggle('max-sm:translate-x-full')
+    body.classList.toggle('max-sm:overflow-hidden')
+    body.classList.toggle('max-sm:h-[0vh]')
+    usermobile.classList.toggle('max-sm:-translate-x-full')
 
 
     headeruser.classList.toggle('max-sm:opacity-0')
