@@ -317,11 +317,11 @@
 <main class=" max-sm:pt-16">
     <div class="h-128 max-sm:h-32 w-full overflow-hidden flex justify-center items-center">
         <div class="images flex items-center w-auto fixed -z-10">
-            <img src="/img/home-images/1.jpg" alt="" class=" -z-10 blur">
-            <img src="/img/home-images/2.jpg" alt="" class=" -z-10 blur">
-            <img src="/img/home-images/3.jpg" alt="" class=" -z-10 blur">
-            <img src="/img/home-images/4.jpg" alt="" class=" -z-10 blur">
-            <img src="/img/home-images/5.jpg" alt="" class=" -z-10 blur">
+            <img src="/img/dashboard-images/1.jpg" alt="" class=" -z-10 blur">
+            <img src="/img/dashboard-images/2.jpg" alt="" class=" -z-10 blur">
+            <img src="/img/dashboard-images/3.jpg" alt="" class=" -z-10 blur">
+            <img src="/img/dashboard-images/4.jpg" alt="" class=" -z-10 blur">
+            <img src="/img/dashboard-images/5.jpg" alt="" class=" -z-10 blur">
         </div>
         <img src="" alt="" class="blur">
         <div class="max-sm:scale-50 h-32 w-32 z-10 absolute">
