@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="/css/output.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+    @vite('resources/css/app.css')
     <script>
         let html = document.querySelector('html');
         var checkCookie = function () {
@@ -24,10 +23,10 @@
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
-        body{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow:hidden;
-        }
+            body{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                overflow:hidden;
+            }
             .ion-title{
                 color:black;
                 font-size:65px;
@@ -56,7 +55,7 @@
             .reg{
                 transition:.5s;
                 transform:translatex(100%);
-    box-shadow:0 3px 10px rgba(0, 0, 0, 0.6);
+                box-shadow:0 3px 10px rgba(0, 0, 0, 0.6);
             }
             .reg.active{
                 transition:.5s;
@@ -65,7 +64,7 @@
             .edit{
                 transition:.5s;
                 transform:translatex(100%);
-    box-shadow:0 3px 10px rgba(0, 0, 0, 0.6);
+                box-shadow:0 3px 10px rgba(0, 0, 0, 0.6);
             }
             .edit.active{
                 transition:.5s;
@@ -75,11 +74,11 @@
                 transition:backdrop-filter .5s, transform 0s;
                 transition-delay:0s, .5s;
                 transform:translateX(100%);
-    background: rgba(0, 0, 0, 0);
+                background: rgba(0, 0, 0, 0);
             }
             .reg-bg.active{
                 transition:.5s;
-    backdrop-filter: blur(5px);
+                backdrop-filter: blur(5px);
                 transform:translatex(0%);
                 transition:backdrop-filter .5s, transform 0s;
             }
@@ -435,10 +434,10 @@
     </div>
 </div>
 
-    <script src="/js/checks.js"></script>
-    <script src="/js/reg.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="/js/checks.js"></script>
+<script src="/js/reg.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
