@@ -32,7 +32,7 @@ module.exports = {
                 '160': '40rem',
                 '212': '53rem',
                 '286': '71.5rem',
-                'table': '26rem',
+                'table': '30rem',
                 'custom': '30rem',
                 'aside': '37.7rem',
                 '312': '78rem',

@@ -296,7 +296,7 @@
                         </li>
                         <li style="--i:0.2s;" class="submenu-exit
                                     opacity-0 invisible duration-500">
-                            <a href="login" class="flex
+                            <a href="login.html" class="flex
                                         items-center mb-2.5 duration-500" tabindex="1">
                                     <span class="w-7 mr-2.5 flex
                                             justify-center">

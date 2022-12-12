@@ -55,6 +55,8 @@ dataeditcancel.onclick = function () {
     nptmodel.disabled = true;
     nptstatus.disabled = true;
     vehiclestatusdot.classList.add('bg-zinc-700')
+    vehiclestatusdot.classList.remove('bg-red-700')
+    vehiclestatusdot.classList.remove('bg-green-700')
 }
 
 dataeditsave.onclick = function () {
@@ -74,7 +76,7 @@ warningaccept.onclick = function () {
     warning.classList.toggle('opacity-0')
     body.classList.remove('overflow-hidden')
 
-    
+
     dataedit.classList.toggle('opacity-0')
     dataedit.classList.toggle('invisible')
     dataeditsave.classList.toggle('opacity-0')
@@ -87,7 +89,7 @@ warningaccept.onclick = function () {
     nptowner.disabled = true;
     nptmodel.disabled = true;
     nptstatus.disabled = true;
-    vehiclestatusdot.classList.add('bg-zinc-700')   
+    vehiclestatusdot.classList.add('bg-zinc-700')
 }
 
 vehiclestatus.onclick = function () {
